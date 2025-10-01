@@ -1,0 +1,48 @@
+# Rust
+/target/
+**/*.rs.bk
+*.pdb
+
+# MacOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+.history/
+
+# IDE
+.idea/
+*.swp
+*.swo
+*~
+
+# Zed
+.zed/
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.local
