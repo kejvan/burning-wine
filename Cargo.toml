@@ -1,0 +1,10 @@
+[package]
+name = "burning-wine"
+description = "Wine classification neural network in Rust, using Polars and Burn."
+edition = "2024"
+
+[dependencies]
+polars = { version = "0.51.0", features = ["lazy", "csv"] }
+burn = { version = "0.18.0", features = ["train", "ndarray"] }
+reqwest = { version = "0.12.23", features = ["blocking"] }
+anyhow = "1.0.100"
