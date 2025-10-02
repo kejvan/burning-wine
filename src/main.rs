@@ -1,7 +1,11 @@
 mod data;
+mod model;
 
 use anyhow::Result;
-use burn::backend::NdArray;
+use burn::{
+    backend::{NdArray, ndarray::NdArrayDevice},
+    module::Module,
+};
 
 // Hyperparameters
 const SEED: u64 = 42;
@@ -39,6 +43,18 @@ fn main() -> Result<()> {
         x_test.shape(),
         y_test.shape()
     );
+
+    println!();
+    println!("model.rs:");
+
+    let device = NdArrayDevice::Cpu;
+    let model = model::SimpleClassifier::<NdArray>::new(&device);
+
+    println!("Model structure: {:#?}", model);
+    println!("\nTotal parameters: {}", model.num_params());
+
+    let output = model.forward(x_train.clone());
+    println!("Output shape: {:?}", output.shape());
 
     Ok(())
 }
