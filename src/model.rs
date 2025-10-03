@@ -11,12 +11,12 @@ use burn::{
 
 /// Neural network model for wine classification
 ///
-/// Architecture: 13 → 8 (ReLU) → 8 (ReLU) → 3
+/// Architecture: 13 → 4 (ReLU) → 4 (ReLU) → 3
 ///
 /// The model consists of:
 /// - Input layer: 13 features (chemical properties)
-/// - Hidden layer 1: 8 neurons with ReLU activation
-/// - Hidden layer 2: 8 neurons with ReLU activation
+/// - Hidden layer 1: 4 neurons with ReLU activation
+/// - Hidden layer 2: 4 neurons with ReLU activation
 /// - Output layer: 3 neurons (logits for classes 0, 1, 2)
 ///
 /// # Example
@@ -53,9 +53,9 @@ impl<B: Backend> SimpleClassifier<B> {
     /// let model = SimpleClassifier::<NdArray>::new(&device);
     /// ```
     pub fn new(device: &B::Device) -> Self {
-        let linear1: Linear<B> = LinearConfig::new(13, 8).init(device);
-        let linear2: Linear<B> = LinearConfig::new(8, 8).init(device);
-        let linear3: Linear<B> = LinearConfig::new(8, 3).init(device);
+        let linear1: Linear<B> = LinearConfig::new(13, 4).init(device);
+        let linear2: Linear<B> = LinearConfig::new(4, 4).init(device);
+        let linear3: Linear<B> = LinearConfig::new(4, 3).init(device);
         let activation = Relu::new();
 
         Self {
