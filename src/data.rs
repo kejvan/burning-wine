@@ -217,7 +217,7 @@ pub fn df_to_tensor<B: Backend>(df: DataFrame) -> Result<Tensor<B, 2, Float>> {
 pub fn train_test_split<B: Backend>(
     x: Tensor<B, 2, Float>,
     y: Tensor<B, 1, Int>,
-    train_ratio: f32,
+    train_ratio: f64,
 ) -> (
     Tensor<B, 2, Float>,
     Tensor<B, 1, Int>,
@@ -225,7 +225,7 @@ pub fn train_test_split<B: Backend>(
     Tensor<B, 1, Int>,
 ) {
     let total_samples = x.dims()[0];
-    let train_size = (total_samples as f32 * train_ratio) as usize;
+    let train_size = (total_samples as f64 * train_ratio) as usize;
     let num_cols = x.dims()[1];
 
     // Split features into train and test
